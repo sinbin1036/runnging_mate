@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useEffect } from "react";
 import type { SVGProps } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 
 type Run = {
   run_date: string;
@@ -215,19 +215,9 @@ function RouteView({ runs, selectedDate }: { runs: Run[], selectedDate: Date | n
         </GoogleMap>
       */}
       <div className="absolute inset-0">
-        {activeRun ? (
-          <Image 
-            src={activeRun.path_image_url} 
-            alt={`Map of ${activeRun.location}`} 
-            layout="fill" 
-            objectFit="cover" 
-            className="opacity-30 transition-opacity duration-500"
-          />
-        ) : (
-          <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-             <MapPinIcon className="w-16 h-16 text-gray-700"/>
-          </div>
-        )}
+        <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+           <MapPinIcon className="w-16 h-16 text-gray-700"/>
+        </div>
       </div>
 
       {/* Details Overlay */}
@@ -345,7 +335,7 @@ function TotalStatsCard({ totalStats }: { totalStats: { totalDistance: number, t
         </div>
         <div>
           <p className="text-sm text-gray-400">평균 페이스</p>
-          <p className="text-2xl font-bold">{Math.floor(totalStats.avgPace)}'{((totalStats.avgPace % 1) * 60).toFixed(0).padStart(2, '0')}" <span className="text-base font-normal text-gray-400">/km</span></p>
+          {/* <p className="text-2xl font-bold">{Math.floor(totalStats.avgPace)}'{((totalStats.avgPace % 1) * 60).toFixed(0).padStart(2, '0')}" <span className="text-base font-normal text-gray-400">/km</span></p> */}
         </div>
       </div>
     </div>
