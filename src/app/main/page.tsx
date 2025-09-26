@@ -2,10 +2,12 @@
 
 import type { NextPage } from 'next';
 import { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const MainPage: NextPage = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -26,9 +28,21 @@ const MainPage: NextPage = () => {
   };
 
   const handleMenuItemClick = (action: string) => {
-    console.log(`${action} clicked`);
     setIsProfileMenuOpen(false);
-    // TODO(stagewise): Add actual navigation logic here
+    switch (action) {
+      case '설정':
+        // TODO: Add navigation to settings page
+        console.log('Settings clicked');
+        break;
+      case '대시보드':
+        router.push('/dashboard');
+        break;
+      case '로그아웃':
+        router.push('/');
+        break;
+      default:
+        break;
+    }
   };
   // Helper component for icons
   const Icon = ({ path, className = 'w-6 h-6' }: { path: string; className?: string }) => (
