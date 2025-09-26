@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect } from "react";
 import type { SVGProps } from "react";
+import { useRouter } from "next/navigation";
 // import Image from "next/image";
 
 type Run = {
@@ -344,6 +345,7 @@ function TotalStatsCard({ totalStats }: { totalStats: { totalDistance: number, t
 
 
 export default function DashboardPage() {
+  const router = useRouter();
   // Mock data for runs
   const mockRuns = useMemo(() => {
     const runsData = [
@@ -436,7 +438,15 @@ export default function DashboardPage() {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold mb-6">활동</h1>
+        <div className="flex items-center mb-6">
+          <button
+            onClick={() => router.push('/main')}
+            className="mr-2 p-2 rounded-full hover:bg-gray-700 transition-colors"
+          >
+            <ChevronLeftIcon className="w-6 h-6" />
+          </button>
+          <h1 className="text-3xl font-bold">활동</h1>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div className="lg:col-span-2">
