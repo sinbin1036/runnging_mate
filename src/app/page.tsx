@@ -20,40 +20,134 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Filters Section (Placeholder) */}
-      <section className="py-12">
-        <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold">나에게 맞는 코스 찾기</h2>
-            <p className="text-gray-500">거리, 시간, 경사도별로 필터링해보세요.</p>
-        </div>
-        <div className="bg-gray-100 p-8 rounded-lg flex justify-center items-center min-h-[150px]">
-          <p className="text-gray-500">[코스 필터 기능이 여기에 표시됩니다]</p>
+      <section class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">우리 동네 러닝, 다르게 시작해 보세요</h2>
+            <p class="text-gray-700 mt-2">Running Mate는 단순한 기록 앱이 아닙니다.</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-10">
+            {/* Feature 1: Community */}
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <span class="bg-blue-100 text-blue-600 rounded-full p-3">
+                  {/* Placeholder for an icon */}
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">함께 만드는 러닝 커뮤니티</h3>
+              <p class="text-gray-800">
+                다른 러너들이 직접 달리고 공유한 코스를 탐색하고, 나만의 코스를 추가해 보세요. 커뮤니티와 함께 더 안전하고 즐거운 러닝을 경험할 수 있습니다.
+              </p>
+            </div>
+            {/* Feature 2: Accuracy */}
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <span class="bg-blue-100 text-blue-600 rounded-full p-3">
+                  {/* Placeholder for an icon */}
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447-2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 13v-3m6 3v-3m0 0l-6-3m6 3V7" /></svg>
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">실제 데이터 기반의 정확성</h3>
+              <p class="text-gray-800">
+                추상적인 추천 경로가 아닌, 실제 사용자의 GPS 기록으로 검증된 코스입니다. ±200m의 높은 정확도로 신뢰할 수 있는 경로를 제공합니다.
+              </p>
+            </div>
+            {/* Feature 3: Vivid Reviews */}
+            <div class="text-center">
+              <div class="mb-4 flex justify-center">
+                <span class="bg-blue-100 text-blue-600 rounded-full p-3">
+                  {/* Placeholder for an icon */}
+                  <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                </span>
+              </div>
+              <h3 class="text-xl font-bold mb-2">사진과 후기로 보는 생생함</h3>
+              <p class="text-gray-800">
+                코스의 실제 풍경, 노면 상태, 혼잡도 등 방문 전에 꼭 필요한 정보들을 다른 러너들의 사진과 상세한 후기를 통해 미리 확인하세요.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Courses List Section (Placeholder) */}
-      <section className="py-12">
-        <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold">추천 코스</h2>
-            <p className="text-gray-500">이번 주, 이런 코스는 어떠세요?</p>
+      {/* How It Works Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold">단 3단계로 러닝메이트 시작하기</h2>
+            <p className="text-gray-700 mt-2">복잡한 과정 없이 바로 시작할 수 있습니다.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-10">
+            {/* Step 1 */}
+            <div className="text-center">
+              <div className="mb-6">
+                <span className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
+                  <span className="text-3xl font-bold text-blue-600">1</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-2">코스 탐색</h3>
+              <p className="text-gray-800">다른 러너들이 공유한, 검증된 코스들을 지도와 목록에서 찾아보세요.</p>
+            </div>
+            {/* Step 2 */}
+            <div className="text-center">
+              <div className="mb-6">
+                <span className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
+                  <span className="text-3xl font-bold text-blue-600">2</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-2">함께 달리기</h3>
+              <p className="text-gray-800">마음에 드는 코스를 선택하고, GPS 경로를 따라 달려보세요.</p>
+            </div>
+            {/* Step 3 */}
+            <div className="text-center">
+              <div className="mb-6">
+                <span className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full">
+                  <span className="text-3xl font-bold text-blue-600">3</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-2">경험 공유</h3>
+              <p className="text-gray-800">나만의 러닝 경험과 사진, 후기를 공유하여 커뮤니티에 기여하세요.</p>
+            </div>
+          </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Placeholder Course Cards */}
-          <div className="border rounded-lg p-4 text-center shadow-md">
-            <div className="bg-gray-200 h-40 rounded-md mb-4"></div>
-            <h3 className="font-bold text-xl">광안리 해변 코스</h3>
-            <p className="text-gray-600">5km | 30분</p>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold">Running Mate 사용자들의 생생한 후기</h2>
           </div>
-          <div className="border rounded-lg p-4 text-center shadow-md">
-            <div className="bg-gray-200 h-40 rounded-md mb-4"></div>
-            <h3 className="font-bold text-xl">온천천 시민공원 코스</h3>
-            <p className="text-gray-600">7km | 45분</p>
+          <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <p className="text-gray-800 mb-4">"부산에 이렇게 좋은 코스가 많은지 몰랐어요! 덕분에 매일 새로운 곳을 달리는 재미가 생겼어요. 특히 저녁에 광안리 코스는 최고예요."</p>
+              <div className="font-bold text-gray-900">- 김민준님</div>
+              <div className="text-yellow-500">★★★★★</div>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <p className="text-gray-800 mb-4">"초보 러너라서 어디서 달려야 할지 막막했는데, 거리별/난이도별로 코스가 정리되어 있어서 정말 편해요. 이젠 저도 코스 올리는 재미에 빠졌답니다."</p>
+              <div className="font-bold text-gray-900">- 이수진님</div>
+              <div className="text-yellow-500">★★★★★</div>
+            </div>
           </div>
-          <div className="border rounded-lg p-4 text-center shadow-md">
-            <div className="bg-gray-200 h-40 rounded-md mb-4"></div>
-            <h3 className="font-bold text-xl">이기대 해안산책로</h3>
-            <p className="text-gray-600">8km | 60분</p>
-          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+            지금 바로 당신의 러닝메이트를 만나보세요
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            부산의 아름다운 코스를 발견하고, 러닝 커뮤니티와 함께 성장하세요.
+          </p>
+          <a
+            href="/signup"
+            className="bg-blue-600 text-white font-bold py-4 px-10 rounded-full hover:bg-blue-700 transition duration-300 text-lg"
+          >
+            무료로 회원가입하고 시작하기
+          </a>
         </div>
       </section>
     </div>
