@@ -16,7 +16,7 @@
 
 **Target Users**
 
-* 초보 러너, 여행 러너, 마라톤 준비생
+* 초보 러너, 마라톤 준비생
 
 **Key Features**
 
@@ -27,7 +27,7 @@
 
 ---
 
-## 2) Tech Stack
+2) Tech Stack
 
 * **Framework** : Next.js (App Router + Server Actions)
 * **Lang** : TypeScript
@@ -68,7 +68,6 @@ npm run lint    </span><span># ESLint</span><span>
 * **Must** : `app/`에 모든 페이지/레이아웃/로딩/에러/404/템플릿/Route Handler 배치
 
   (`page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx`, `not-found.tsx`, `template.tsx`, `route.ts`)
-
 * **Should** :  **Route Group** (`(marketing)`, `(app)`)으로 URL 영향 없이 섹션 구분
 * **Can** :  **Parallel/Intercepting** (`@slot`, `(.)`, `(..)`)은 대시보드/모달 같은 복합 UI에 선택 사용
 * **Must** : SEO는 `metadata`/`generateMetadata`로 처리(동적 메타는 `generateMetadata`)
