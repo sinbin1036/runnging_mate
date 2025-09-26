@@ -305,7 +305,7 @@ function ThisWeekCard({ weeklyStats }: { weeklyStats: { totalDistance: number, t
   const progress = weeklyStats.goal > 0 ? (weeklyStats.totalDistance / weeklyStats.goal) * 100 : 0;
 
   return (
-     <div className="lg:col-span-3 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-6 transition-transform hover:scale-[1.02]">
+     <div className="lg:col-span-2 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-6 transition-transform hover:scale-[1.02]">
       <h2 className="text-xl font-semibold mb-4">이번 주</h2>
       <div className="space-y-4">
         <div className="flex items-center justify-between">
@@ -324,6 +324,28 @@ function ThisWeekCard({ weeklyStats }: { weeklyStats: { totalDistance: number, t
         <div className="flex items-center justify-between text-gray-400 text-sm">
           <span>횟수: {weeklyStats.totalRuns}</span>
           <span>목표: {weeklyStats.goal} km</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TotalStatsCard({ totalStats }: { totalStats: { totalDistance: number, totalRuns: number, avgPace: number } }) {
+  return (
+    <div className="lg:col-span-1 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-6 transition-transform hover:scale-[1.02]">
+      <h2 className="text-xl font-semibold mb-4">누적 기록</h2>
+      <div className="space-y-4">
+        <div>
+          <p className="text-sm text-gray-400">총 거리</p>
+          <p className="text-2xl font-bold">{totalStats.totalDistance.toFixed(2)} <span className="text-base font-normal text-gray-400">km</span></p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-400">총 러닝 횟수</p>
+          <p className="text-2xl font-bold">{totalStats.totalRuns} <span className="text-base font-normal text-gray-400">회</span></p>
+        </div>
+        <div>
+          <p className="text-sm text-gray-400">평균 페이스</p>
+          <p className="text-2xl font-bold">{Math.floor(totalStats.avgPace)}'{((totalStats.avgPace % 1) * 60).toFixed(0).padStart(2, '0')}" <span className="text-base font-normal text-gray-400">/km</span></p>
         </div>
       </div>
     </div>
@@ -407,6 +429,19 @@ export default function DashboardPage() {
     };
   }, [mockRuns]);
 
+  const totalStats = useMemo(() => {
+    const totalDistance = mockRuns.reduce((sum, run) => sum + run.distance_km, 0);
+    const totalRuns = mockRuns.length;
+    const totalPaceMinutes = mockRuns.reduce((sum, run) => sum + run.pace_minutes_per_km * run.distance_km, 0);
+    const avgPace = totalRuns > 0 ? totalPaceMinutes / totalDistance : 0;
+
+    return {
+      totalDistance,
+      totalRuns,
+      avgPace,
+    };
+  }, [mockRuns]);
+
 
   return (
     <div className="bg-gray-900 text-white min-h-screen">
@@ -424,6 +459,7 @@ export default function DashboardPage() {
           {/* Dynamic Cards */}
           <LastRunCard lastRun={lastRun} />
           <ThisWeekCard weeklyStats={weeklyStats} />
+          <TotalStatsCard totalStats={totalStats} />
 
           {/* Recommended For You Card */}
           <div className="lg:col-span-5 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg p-6 transition-transform hover:scale-[1.02]">
