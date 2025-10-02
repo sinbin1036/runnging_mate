@@ -2,7 +2,8 @@
 
 import { useMemo, useState, useEffect } from "react";
 import type { SVGProps } from "react";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
+// import Image from "next/image";
 
 type Run = {
   run_date: string;
@@ -215,19 +216,9 @@ function RouteView({ runs, selectedDate }: { runs: Run[], selectedDate: Date | n
         </GoogleMap>
       */}
       <div className="absolute inset-0">
-        {activeRun ? (
-          <Image 
-            src={activeRun.path_image_url} 
-            alt={`Map of ${activeRun.location}`} 
-            layout="fill" 
-            objectFit="cover" 
-            className="opacity-30 transition-opacity duration-500"
-          />
-        ) : (
-          <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-             <MapPinIcon className="w-16 h-16 text-gray-700"/>
-          </div>
-        )}
+        <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+           <MapPinIcon className="w-16 h-16 text-gray-700"/>
+        </div>
       </div>
 
       {/* Details Overlay */}
@@ -345,7 +336,7 @@ function TotalStatsCard({ totalStats }: { totalStats: { totalDistance: number, t
         </div>
         <div>
           <p className="text-sm text-gray-400">평균 페이스</p>
-          <p className="text-2xl font-bold">{Math.floor(totalStats.avgPace)}'{((totalStats.avgPace % 1) * 60).toFixed(0).padStart(2, '0')}" <span className="text-base font-normal text-gray-400">/km</span></p>
+          {/* <p className="text-2xl font-bold">{Math.floor(totalStats.avgPace)}'{((totalStats.avgPace % 1) * 60).toFixed(0).padStart(2, '0')}" <span className="text-base font-normal text-gray-400">/km</span></p> */}
         </div>
       </div>
     </div>
@@ -354,6 +345,7 @@ function TotalStatsCard({ totalStats }: { totalStats: { totalDistance: number, t
 
 
 export default function DashboardPage() {
+  const router = useRouter();
   // Mock data for runs
   const mockRuns = useMemo(() => {
     const runsData = [
@@ -446,7 +438,15 @@ export default function DashboardPage() {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold mb-6">활동</h1>
+        <div className="flex items-center mb-6">
+          <button
+            onClick={() => router.push('/main')}
+            className="mr-2 p-2 rounded-full hover:bg-gray-700 transition-colors"
+          >
+            <ChevronLeftIcon className="w-6 h-6" />
+          </button>
+          <h1 className="text-3xl font-bold">활동</h1>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div className="lg:col-span-2">
