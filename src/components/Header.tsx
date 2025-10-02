@@ -8,8 +8,6 @@ const Header = () => {
           Running Mate
         </Link>
         <nav className="space-x-4">
-          <Link href="/" className="text-gray-600 hover:text-gray-800">홈</Link>
-          <Link href="/courses" className="text-gray-600 hover:text-gray-800">코스 탐색</Link>
           <Link href="/login" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
             로그인
           </Link>
