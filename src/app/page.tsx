@@ -1,24 +1,27 @@
 import Link from 'next/link';
+import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4">
-      {/* Hero Section */}
-      <section className="text-center py-20">
-        <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
-          부산의 숨겨진 러닝 코스, <br />
-          <span className="text-blue-600">Running Mate</span>와 함께 발견하세요.
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          초보 러너부터 마라토너까지, 모두를 위한 코스 공유 플랫폼
-        </p>
-        <Link
-          href="/courses"
-          className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300"
-        >
-          코스 탐색 시작하기
-        </Link>
-      </section>
+    <main>
+      <Header />
+      <div className="container mx-auto px-4">
+        {/* Hero Section */}
+        <section className="text-center py-20">
+          <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
+            부산의 숨겨진 러닝 코스, <br />
+            <span className="text-blue-600">Running Mate</span>와 함께 발견하세요.
+          </h1>
+          <p className="text-lg text-gray-600 mb-8">
+            초보 러너부터 마라토너까지, 모두를 위한 코스 공유 플랫폼
+          </p>
+          <Link
+            href="/courses"
+            className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition duration-300"
+          >
+            코스 탐색 시작하기
+          </Link>
+        </section>
 
       <section class="py-20 bg-blue-50">
         <div class="container mx-auto px-4">
@@ -150,6 +153,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-    </div>
+      </div>
+    </main>
   );
 }
