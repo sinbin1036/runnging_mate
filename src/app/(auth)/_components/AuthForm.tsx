@@ -1,23 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 interface AuthFormProps {
   isSignUp?: boolean;
+  action: (formData: FormData) => Promise<void>;
 }
 
-const AuthForm = ({ isSignUp = false }: AuthFormProps) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setMessage('처리 중...');
-    // TODO: Supabase 인증 로직 추가
-    // isSignUp ? handleSignUp() : handleLogin();
-    setMessage(isSignUp ? '회원가입 로직 미구현' : '로그인 로직 미구현');
-  };
+const AuthForm = ({ isSignUp = false, action }: AuthFormProps) => {
+  const searchParams = useSearchParams();
+  const message = searchParams.get('message');
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
@@ -25,7 +17,7 @@ const AuthForm = ({ isSignUp = false }: AuthFormProps) => {
         <h1 className="text-2xl font-bold text-center text-gray-900">
           {isSignUp ? '회원가입' : '로그인'}
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form action={action} className="space-y-6">
           <div>
             <label
               htmlFor="email"
@@ -39,8 +31,6 @@ const AuthForm = ({ isSignUp = false }: AuthFormProps) => {
               type="email"
               autoComplete="email"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
@@ -57,8 +47,6 @@ const AuthForm = ({ isSignUp = false }: AuthFormProps) => {
               type="password"
               autoComplete={isSignUp ? 'new-password' : 'current-password'}
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
@@ -68,7 +56,11 @@ const AuthForm = ({ isSignUp = false }: AuthFormProps) => {
           >
             {isSignUp ? '동의하고 가입하기' : '로그인'}
           </button>
-          {message && <p className="text-sm text-center text-red-500">{message}</p>}
+          {message && (
+            <p className="mt-4 text-center text-sm text-red-500">
+              {message}
+            </p>
+          )}
         </form>
       </div>
     </div>
